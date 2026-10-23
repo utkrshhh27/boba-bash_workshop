@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond the Known</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #020711;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero, .story {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .hero {
+      background-image:
+        linear-gradient(#0006, #0009),
+        url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1600");
+    }
+
+    #sea {
+      background-image:
+        linear-gradient(#0007, #0009),
+        url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1600");
+    }
+
+    #space {
+      background-image:
+        linear-gradient(#0006, #0009),
+        url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600");
+    }
+
+    #universe {
+      background-image:
+        linear-gradient(#0005, #0009),
+        url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600");
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 75px);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 55px);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 550px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: white;
+      border: 1px solid white;
+      padding: 14px 22px;
+      margin-top: 25px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    a:hover {
+      background: white;
+      color: #020711;
+    }
+
+    .story {
+      opacity: 0.3;
+      transition: opacity 1s;
+    }
+
+    .story.show {
+      opacity: 1;
+    }
+
+    footer {
+      padding: 35px;
+      text-align: center;
+      background: #020711;
+    }
+
+    @media (max-width: 600px) {
+      .hero, .story {
+        background-attachment: scroll;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <h1>Beyond the Known</h1>
+    <p>A journey from the deep sea to outer space.</p>
+    <a href="#sea">Start Exploring ↓</a>
+  </section>
+
+  <section class="story" id="sea">
+    <h2>The Deep Sea</h2>
+    <p>
+      Explore the mysterious world hidden beneath the ocean.
+      Discover its hidden beauty and unknown creatures.
+    </p>
+  </section>
+
+  <section class="story" id="space">
+    <h2>The Space Elevator</h2>
+    <p>
+      Imagine travelling from Earth into space through a giant
+      elevator, connecting our planet to the stars.
+    </p>
+  </section>
+
+  <section class="story" id="universe">
+    <h2>The Universe</h2>
+    <p>
+      Discover distant stars, galaxies, and the endless unknown.
+      Our universe holds countless stories waiting to be explored.
+    </p>
+  </section>
+
+  <footer>
+    Every journey reveals a new story.
+  </footer>
+
+  <script>
+    const stories = document.querySelectorAll(".story");
+
+    function revealStories() {
+      stories.forEach(function(story) {
+        if (story.getBoundingClientRect().top < window.innerHeight * 0.75) {
+          story.classList.add("show");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealStories);
+    revealStories();
+  </script>
+
+</body>
+</html>
